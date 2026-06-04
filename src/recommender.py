@@ -312,8 +312,9 @@ class SVDRecommender:
         pred = self.algo.predict(str(user_id), str(isbn))
         return round(pred.est, 2)
 
-    def save(self):
-        with open(os.path.join(MODEL_DIR, "svd_model.pkl"), "wb") as f:
+    def save_model(self, path: str):
+        import gzip
+        with gzip.open(path + ".gz", "wb") as f:
             pickle.dump(self, f)
         print("[SVDRecommender] Model saved.")
 

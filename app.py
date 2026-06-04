@@ -190,13 +190,14 @@ def load_data():
 @st.cache_resource(show_spinner=False)
 def load_models():
     """Load pre-trained models if available."""
+    import gzip
     models = {}
-    for name, filename in [("popularity", "popularity_model.pkl"),
-                            ("cf",         "cf_model.pkl"),
-                            ("svd",        "svd_model.pkl")]:
+    for name, filename in [("popularity", "popularity_model.pkl.gz"),
+                            ("cf",         "cf_model.pkl.gz"),
+                            ("svd",        "svd_model.pkl.gz")]:
         path = os.path.join(MODEL_DIR, filename)
         if os.path.exists(path):
-            with open(path, "rb") as f:
+            with gzip.open(path, "rb") as f:
                 models[name] = pickle.load(f)
     return models
 
