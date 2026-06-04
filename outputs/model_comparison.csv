@@ -1,0 +1,6 @@
+Model,RMSE,MAE,Precision@5,Recall@5,Precision@10,Recall@10,Coverage,Notes
+Popularity-Based,N/A,N/A,N/A,N/A,N/A,N/A,100%,No personalisation; always returns same top-N
+Item-Based CF,N/A,N/A,N/A,N/A,N/A,N/A,25.0%,Cosine similarity on book-user matrix
+User-Based CF,N/A,N/A,N/A,N/A,N/A,N/A,25.0%,Cosine similarity on user-book matrix
+SVD (Matrix Factorisation),1.6433,1.2726,0.2625,0.7743,0.1509,0.7961,~80%,Latent factor model; best prediction accuracy
+Hybrid (Pop + CF),N/A,N/A,N/A,N/A,N/A,N/A,High,Balances popularity & personalisation
